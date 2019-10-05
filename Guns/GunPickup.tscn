@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Guns/Gun.gd" type="Script" id=1]
-[ext_resource path="res://Guns/pistol.png" type="Texture" id=2]
+[ext_resource path="res://Guns/GunPickup.gd" type="Script" id=1]
+[ext_resource path="res://Guns/pistol_pickup.png" type="Texture" id=2]
+[ext_resource path="res://Misc/ArrowAnim.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15.2149, 12.6801 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "equipped"
@@ -35,13 +39,24 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[node name="Gun" type="Node2D"]
-position = Vector2( 0, 8 )
+[node name="GunPickup" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+hframes = 2
+frame = 1
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/equipped = SubResource( 2 )
 anims/idle = SubResource( 3 )
+
+[node name="ArrowAnim" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -12 )
+[connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
+[connection signal="area_exited" from="Hitbox" to="." method="_on_Hitbox_area_exited"]

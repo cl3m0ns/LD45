@@ -5,7 +5,7 @@
 [ext_resource path="res://Pickups/ShirtPickup.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Pickups/PantsPickup.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Guns/Gun.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Guns/GunPickup.tscn" type="PackedScene" id=6]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -24,4 +24,4 @@ position = Vector2( 113.161, 73.0459 )
 z_index = 2
 
 [node name="Gun" parent="." instance=ExtResource( 6 )]
-position = Vector2( 212.073, 47.5466 )
+position = Vector2( 236.224, 30.9431 )

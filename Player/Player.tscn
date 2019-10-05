@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Misc/shadow.png" type="Texture" id=2]
@@ -41,6 +41,9 @@ tracks/0/keys = {
 "values": [ 4, 5, 6, 7, 8 ]
 }
 
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 4.98413, 8.08348 )
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
@@ -51,7 +54,6 @@ texture = ExtResource( 2 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
 hframes = 13
-frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -66,3 +68,9 @@ anims/walk = SubResource( 3 )
 process_mode = 0
 wait_time = 0.5
 one_shot = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( 0.0106506, 2.97282 )
+shape = SubResource( 4 )

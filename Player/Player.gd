@@ -1,6 +1,6 @@
 extends KinematicBody2D
 export (int) var SPEED = 75
-var TYPE = "Player"
+var TYPE = "PLAYER"
 var moveDir = Vector2.ZERO
 enum states { IDLE, MOVE }
 var state = states.IDLE
@@ -9,7 +9,8 @@ var bullet = preload("res://Bullet/Bullet.tscn")
 export var bullet_wait_time = 0.5
 
 func _ready():
-	pass
+	global.player = self
+	global.playerSprite = $Sprite
 
 func _physics_process(delta):
 	get_inputs()

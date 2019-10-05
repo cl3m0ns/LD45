@@ -1,10 +1,12 @@
 extends KinematicBody2D
 export (int) var SPEED = 75
+var TYPE = "Player"
 var moveDir = Vector2.ZERO
 enum states { IDLE, MOVE }
 var state = states.IDLE
-var previous_state = states.IDLE
-
+var isFiring = false
+var bullet = preload("res://Bullet/Bullet.tscn")
+export var bullet_wait_time = 0.5
 
 func _ready():
 	pass
@@ -20,24 +22,35 @@ func _physics_process(delta):
 		states.IDLE:
 			$AnimationPlayer.play("idle")
 		states.MOVE:
-			if previous_state != state:
-				$AnimationPlayer.play("walk")
+			$AnimationPlayer.play("walk")
 			if moveDir.x > 0:
 				$Sprite.flip_h = false
 			elif moveDir.x < 0:
 				$Sprite.flip_h = true
 			move()
 	
-	previous_state = state
+	if isFiring && $CanFireTimer.is_stopped():
+		fire_bullet()
+
+func fire_bullet():
+	$CanFireTimer.wait_time = bullet_wait_time
+	$CanFireTimer.start()
+	var myBullet = bullet.instance()
+	myBullet.moveDir = get_global_mouse_position()
+	myBullet.set_global_position(get_position())
+	myBullet.start_pos = get_position()
+	get_parent().add_child(myBullet)
 
 func get_inputs():
-	var move_up = Input.is_action_pressed("move_up");
-	var move_down = Input.is_action_pressed("move_down");
-	var move_right = Input.is_action_pressed("move_right");
-	var move_left = Input.is_action_pressed("move_left");
+	var move_up = Input.is_action_pressed("move_up")
+	var move_down = Input.is_action_pressed("move_down")
+	var move_right = Input.is_action_pressed("move_right")
+	var move_left = Input.is_action_pressed("move_left")
 	
 	moveDir.x = -int(move_left) + int(move_right)
 	moveDir.y = -int(move_up) + int(move_down)
+	
+	isFiring  = Input.is_action_pressed("shooting")
 
 func move():
 	move_and_slide(moveDir.normalized()*SPEED, Vector2.ZERO)

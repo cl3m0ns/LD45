@@ -16,3 +16,11 @@ func _physics_process(delta):
 	
 	if $LifeTimer.is_stopped():
 		queue_free()
+
+func _on_Hitbox_area_entered(area):
+	var body = area.get_parent()
+	if body.get("TYPE") == "ENEMY" && canHurt:
+		body.knockDir = body.get_global_position() - get_global_position()
+		body.take_damage()
+		canHurt = false
+		#explode_and_die()

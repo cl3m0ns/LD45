@@ -13,6 +13,7 @@ func _ready():
 	# Changes only the arrow shape of the cursor
 	# This is similar to changing it in the project settings
 	Input.set_custom_mouse_cursor(arrow)
+	$Transition.black_go_out()
 
 func _physics_process(delta):
 	if currMoney != global.money:

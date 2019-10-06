@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Menu/Info.gd" type="Script" id=1]
 [ext_resource path="res://Font/LemonMilk.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://Menu/Transition.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sounds/388102__furbyguy__80-s-mean.wav" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 7
@@ -141,5 +142,10 @@ margin_right = 355.304
 margin_bottom = 68.8503
 rect_scale = Vector2( 0.4, 0.4 )
 pressed = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -25.0
+autoplay = true
 [connection signal="toggled" from="MusicButton" to="." method="_on_MusicButton_toggled"]
 [connection signal="toggled" from="SoundButton" to="." method="_on_SoundButton_toggled"]

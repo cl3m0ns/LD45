@@ -3,6 +3,8 @@ extends Node2D
 var color = false
 
 func _ready():
+	if global.MUSIC == false:
+		$Music.stop()
 	$BlinkTimer.start()
 	$Transition.black_go_out()
 

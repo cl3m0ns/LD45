@@ -7,6 +7,8 @@ func _ready():
 	$Transition.black_go_out()
 
 func _physics_process(delta):
+	if global.MUSIC == false:
+		$Music.stop()
 	blink_any_key()
 
 func _input(event):

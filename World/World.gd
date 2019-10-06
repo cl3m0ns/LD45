@@ -11,6 +11,8 @@ var spawners = []
 export var round_timer = 15
 
 func _ready():
+	if global.MUSIC == false:
+		$Music.stop()
 	spawners = [$Spawners/Spawner, $Spawners/Spawner2, $Spawners/Spawner3, $Spawners/Spawner4]
 	$BreakTimer.start()
 	# Changes only the arrow shape of the cursor

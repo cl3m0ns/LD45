@@ -13,7 +13,7 @@ enum {
 	CHASE,
 	KNOCKBACK
 }
-var hp = 4
+var hp = 1
 
 var dirChoose = [Vector2.RIGHT, Vector2.DOWN, Vector2.UP, Vector2.LEFT, Vector2(1,1), Vector2(-1,-1), Vector2(-1,1), Vector2(1,-1)]
 var state = NEW_DIR

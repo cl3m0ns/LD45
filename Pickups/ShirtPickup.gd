@@ -5,12 +5,12 @@ func _ready():
 	$ArrowAnim/AnimationPlayer.play("idle")
 
 func _physics_process(delta):
-	if canPickup && Input.is_action_pressed("pickup_item"):
+	if canPickup && Input.is_action_pressed("pickup_item") && global.check_money():
 		global.update_player_sprite(true)
 		global.hp += 2
 		global.max_hp += 2
 		global.hasShirt = true
-		global.itemPicked = true
+		global.spend_money()
 		queue_free()
 
 func _on_Hitbox_area_entered(area):

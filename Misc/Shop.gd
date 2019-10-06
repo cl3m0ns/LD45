@@ -10,10 +10,6 @@ func _ready():
 	elif global.hasShirt && !global.hasPants:
 		$ShirtPickup.queue_free()
 		$HealthPickup.queue_free()
-	
-	
-
-func _physics_process(delta):
-	if global.itemPicked:
-		global.itemPicked = false
-		queue_free()
+		
+func _die():
+	queue_free()

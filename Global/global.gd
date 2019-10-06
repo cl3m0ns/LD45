@@ -17,6 +17,7 @@ var hasShirt = false
 var itemPicked = false
 var rounds_survived = 0
 var SFX = true
+var level = 1
 var MUSIC = true
 
 
@@ -25,8 +26,13 @@ func _ready():
 	if !map_seed:
 		map_seed = randi()
 		seed(map_seed)
-		print("Seed: ", map_seed)
 
+func check_money():
+	return money > 10 * (level-1)
+
+func spend_money():
+	money -= 10 * (level-1)
+	
 func update_player_sprite(isShirt):
 	if playerSprite == null:
 		return

@@ -3,7 +3,6 @@ var arrow = load("res://Misc/1crosshair.png")
 var zombie = preload("res://Enemies/Zombie.tscn")
 var shop = preload("res://Misc/Shop.tscn")
 var currShop = null
-var level = 1
 var levelStarted = false
 var enemiesToSpawn = 0
 var currMoney = 0
@@ -42,22 +41,25 @@ func _physics_process(delta):
 
 func start_round():
 	if currShop != null:
+		currShop._die()
 		currShop = null
 	levelStarted = true
-	enemiesToSpawn = 5 * level
+	enemiesToSpawn = 5 * global.level
 	global.enemiesAlive = enemiesToSpawn
-	$UI_Bar/Labels/RoundLabel.text = "ROUND " + String(level)
+	$UI_Bar/Labels/RoundLabel.text = "ROUND " + String(global.level)
 	
 
 func spawn_shop():
 	currShop = shop.instance()
 	add_child(currShop)
+	currShop.get_node("PriceLabel").text = "Everything $" + String(10 * global.level) 
+	
 
 func end_round():
 	spawn_shop()
 	levelStarted = false
-	level += 1
-	global.rounds_survived = level
+	global.level += 1
+	global.rounds_survived = global.level
 	$BreakTimer.wait_time = round_timer
 	
 	$BreakTimer.start()

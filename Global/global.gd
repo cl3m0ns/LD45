@@ -8,6 +8,8 @@ var player_clothed = preload("res://Player/player_clothed.png")
 var player = null
 var playerSprite = null
 var currWeapon = null
+var enemiesAlive = 0
+var money = 0
 
 func _ready():
 	randomize()
@@ -24,3 +26,10 @@ func update_player_sprite(isShirt):
 		playerSprite.set_texture(player_shirt)
 	else:
 		playerSprite.set_texture(player_clothed)
+
+func reset_stats():
+	map_seed = 0
+	max_hp = 3
+	hp = max_hp
+	enemiesAlive = 0
+	money = 0

@@ -4,24 +4,49 @@ var zombie = preload("res://Enemies/Zombie.tscn")
 var level = 1
 var levelStarted = false
 var enemiesToSpawn = 0
-
+var currMoney = 0
 var spawners = []
 
 func _ready():
 	spawners = [$Spawners/Spawner, $Spawners/Spawner2, $Spawners/Spawner3, $Spawners/Spawner4]
+	$BreakTimer.start()
 	# Changes only the arrow shape of the cursor
 	# This is similar to changing it in the project settings
 	Input.set_custom_mouse_cursor(arrow)
 
 func _physics_process(delta):
+	if currMoney != global.money:
+		$UI_Bar/Labels/Money.text = "$" + String(global.money)
 	
-	if levelStarted == false:
-		levelStarted = true
-		enemiesToSpawn = 5 * level
+	if levelStarted == false && $BreakTimer.is_stopped():
+		print('start')
+		start_round()
 		spawnEnemies()
+	elif levelStarted && enemiesToSpawn > 0 && $SpawnTimer.is_stopped():
+		print('during')
+		spawnEnemies()
+	elif levelStarted && enemiesToSpawn == 0 && global.enemiesAlive == 0:
+		print('end')
+		end_round()
+	elif $BreakTimer.time_left > 0:
+		var timeLeft = String(round($BreakTimer.time_left))
+		$UI_Bar/Labels/RoundLabel.text = "Next Round in: " + timeLeft
 	
-	if enemiesToSpawn > 0 && $SpawnTimer.is_stopped():
-		spawnEnemies()
+	currMoney = global.money
+
+func start_round():
+	levelStarted = true
+	enemiesToSpawn = 5 * level
+	global.enemiesAlive = enemiesToSpawn
+	$UI_Bar/Labels/RoundLabel.text = "ROUND " + String(level)
+	
+
+func end_round():
+	levelStarted = false
+	level += 1
+	$BreakTimer.wait_time = 15
+	
+	$BreakTimer.start()
 
 func spawnEnemies():
 	var spawner = choose(spawners)

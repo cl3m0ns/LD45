@@ -126,6 +126,8 @@ func take_damage():
 
 func do_death():
 	get_node("Sprite").modulate = Color(10,10,10,10)
+	global.enemiesAlive -= 1
+	global.money += 5
 	#var boom = bloodSplatter.instance()
 	#boom.set_position(position)
 	#get_parent().add_child(boom)

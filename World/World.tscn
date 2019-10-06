@@ -28,10 +28,10 @@ position = Vector2( 285.592, 93.6905 )
 position = Vector2( 287.391, 24.2287 )
 
 [node name="Spawner2" parent="Spawners" instance=ExtResource( 5 )]
-position = Vector2( 26.3958, 142.623 )
+position = Vector2( 115.044, 168.506 )
 
 [node name="Spawner4" parent="Spawners" instance=ExtResource( 5 )]
-position = Vector2( 146.11, 12.7854 )
+position = Vector2( 18.4257, 110.27 )
 
 [node name="Spawner3" parent="Spawners" instance=ExtResource( 5 )]
 position = Vector2( 292.233, 155.827 )
@@ -47,4 +47,9 @@ z_index = 4096
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 2.0
+one_shot = true
+
+[node name="BreakTimer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 15.0
 one_shot = true

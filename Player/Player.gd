@@ -8,6 +8,7 @@ var isFiring = false
 var hasWeapon = false
 var bullet = preload("res://Bullet/Bullet.tscn")
 export var bullet_wait_time = 0.5
+var iframes = 0
 
 func _ready():
 	global.player = self
@@ -34,6 +35,13 @@ func _physics_process(delta):
 	if isFiring && $CanFireTimer.is_stopped():
 		fire_bullet()
 
+	if iframes > 0:
+		iframes -= 1
+		get_node("Sprite").modulate = Color(10,10,10,10)
+	else:
+		get_node("Sprite").modulate = Color(1,1,1,1)
+	
+
 
 func fire_bullet():
 	$CanFireTimer.wait_time = bullet_wait_time
@@ -58,3 +66,19 @@ func get_inputs():
 
 func move():
 	move_and_slide(moveDir.normalized()*SPEED, Vector2.ZERO)
+
+func do_death():
+	global.reset_stats()
+	get_tree().change_scene("res://World/World.tscn")
+
+func _on_Hitbox_area_entered(area):
+	var body = area.get_parent()
+	if body.get("TYPE") == "ENEMY":
+		if iframes == 0:
+			iframes = 15
+			global.hp -= 1
+		if global.hp <= 0:
+			do_death()
+		else:
+			#state = KNOCKBACK
+			pass

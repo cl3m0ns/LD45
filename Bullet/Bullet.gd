@@ -7,7 +7,6 @@ var start_pos = Vector2.ZERO
 var canHurt = true
 var damage = 0
 var bulletHit = preload("res://Misc/BulletImpact.tscn")
-
 func ready():
 	$LifeTimer.start()
 

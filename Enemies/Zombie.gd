@@ -5,7 +5,7 @@ var SPEED = choose([50, 40, 55])
 var moveDir = Vector2.RIGHT
 var oldDir = Vector2.ZERO
 var knockDir = Vector2.ZERO
-
+var bloodImpact = preload("res://Misc/BloodImpact.tscn")
 enum {
 	NEW_DIR,
 	ATTACK,
@@ -119,6 +119,10 @@ func take_damage():
 	if iframes == 0:
 		iframes = 15
 		hp -= global.player_damage
+		var boom = bloodImpact.instance()
+		var myPos = self.global_position
+		boom.set_global_position(myPos)
+		get_parent().add_child(boom)
 		if hp <= 0:
 			do_death()
 		else:

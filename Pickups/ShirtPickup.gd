@@ -7,6 +7,8 @@ func _ready():
 func _physics_process(delta):
 	if canPickup && Input.is_action_pressed("pickup_item"):
 		global.update_player_sprite(true)
+		global.hp += 2
+		global.max_hp += 2
 		queue_free()
 
 func _on_Hitbox_area_entered(area):

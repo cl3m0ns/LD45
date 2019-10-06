@@ -11,10 +11,8 @@ func ready():
 	$LifeTimer.start()
 
 func _physics_process(delta):
-	print('stuff')
 	var movement = (moveDir - start_pos).normalized() * speed * delta
 	move_and_collide(movement)
 	
 	if $LifeTimer.is_stopped():
-		print('dead')
 		queue_free()

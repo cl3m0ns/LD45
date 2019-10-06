@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ShopBuy.wav-7a5b4b713ae0fa2552f7fd21ff9f464c.sample"
+
+[deps]
+
+source_file="res://Sounds/ShopBuy.wav"
+dest_files=[ "res://.import/ShopBuy.wav-7a5b4b713ae0fa2552f7fd21ff9f464c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

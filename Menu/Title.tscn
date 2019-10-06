@@ -4,14 +4,14 @@
 [ext_resource path="res://Font/LemonMilk.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://Menu/Transition.tscn" type="PackedScene" id=3]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 7
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_char = 1
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 18
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -41,7 +41,7 @@ margin_left = 238.808
 margin_top = 167.369
 margin_right = 315.808
 margin_bottom = 178.369
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "by clemonades"
 align = 2
 
@@ -49,7 +49,7 @@ align = 2
 margin_top = 14.2997
 margin_right = 319.0
 margin_bottom = 98.2997
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Mullet Man
 and the
 Apocalypse"

@@ -15,6 +15,9 @@ var fire_rate = .5
 var hasPants = false
 var hasShirt = false
 var itemPicked = false
+var rounds_survived = 0
+var SFX = true
+var MUSIC = true
 
 
 func _ready():
@@ -41,3 +44,4 @@ func reset_stats():
 	money = 0
 	hasPants = false
 	hasShirt = false
+	rounds_survived = 0

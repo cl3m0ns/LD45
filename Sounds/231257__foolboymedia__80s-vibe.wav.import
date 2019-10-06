@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/231257__foolboymedia__80s-vibe.wav-fd491532524e7e60d49cf829f1186be0.sample"
+
+[deps]
+
+source_file="res://Sounds/231257__foolboymedia__80s-vibe.wav"
+dest_files=[ "res://.import/231257__foolboymedia__80s-vibe.wav-fd491532524e7e60d49cf829f1186be0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

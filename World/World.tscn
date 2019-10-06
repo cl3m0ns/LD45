@@ -51,6 +51,5 @@ wait_time = 8.0
 one_shot = true
 
 [node name="Transition" parent="." instance=ExtResource( 6 )]
-visible = false
 z_index = 3000
 z_as_relative = false

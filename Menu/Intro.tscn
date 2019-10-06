@@ -4,14 +4,14 @@
 [ext_resource path="res://Font/LemonMilk.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://Menu/Transition.tscn" type="PackedScene" id=3]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 6
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_char = 1
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 10
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -30,7 +30,7 @@ margin_left = 20.1696
 margin_top = 23.8304
 margin_right = 307.17
 margin_bottom = 107.83
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "In typical floridian fashion, while others prepared 
 for the apocalypse, mullet man partied.
 
@@ -47,7 +47,7 @@ margin_left = 1.70047
 margin_top = 162.43
 margin_right = 317.701
 margin_bottom = 178.43
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.956863, 0.956863, 0.6, 1 )
 text = "- press any key -"
 align = 1
@@ -57,7 +57,7 @@ margin_left = 2.41165
 margin_top = 161.71
 margin_right = 318.412
 margin_bottom = 177.71
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "- press any key -"
 align = 1
@@ -71,4 +71,3 @@ one_shot = true
 autostart = true
 
 [node name="Transition" parent="." instance=ExtResource( 3 )]
-visible = false

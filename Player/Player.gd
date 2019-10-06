@@ -68,8 +68,7 @@ func move():
 	move_and_slide(moveDir.normalized()*SPEED, Vector2.ZERO)
 
 func do_death():
-	global.reset_stats()
-	get_tree().change_scene("res://World/World.tscn")
+	get_tree().change_scene("res://Menu/GameOver.tscn")
 
 func _on_Hitbox_area_entered(area):
 	var body = area.get_parent()

@@ -55,6 +55,7 @@ func end_round():
 	spawn_shop()
 	levelStarted = false
 	level += 1
+	global.rounds_survived = level
 	$BreakTimer.wait_time = round_timer
 	
 	$BreakTimer.start()

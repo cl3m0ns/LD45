@@ -23,4 +23,7 @@ func _on_Hitbox_area_entered(area):
 		body.knockDir = body.get_global_position() - get_global_position()
 		body.take_damage()
 		canHurt = false
-		#explode_and_die()
+		explode_and_die()
+
+func explode_and_die():
+	queue_free()

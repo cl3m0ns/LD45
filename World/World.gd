@@ -36,6 +36,7 @@ func _physics_process(delta):
 	currMoney = global.money
 
 func start_round():
+	$Shop.visible = false
 	levelStarted = true
 	enemiesToSpawn = 5 * level
 	global.enemiesAlive = enemiesToSpawn
@@ -43,6 +44,7 @@ func start_round():
 	
 
 func end_round():
+	$Shop.visible = true
 	levelStarted = false
 	level += 1
 	$BreakTimer.wait_time = 15

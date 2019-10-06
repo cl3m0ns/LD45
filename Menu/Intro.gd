@@ -14,7 +14,7 @@ func _input(event):
 		if $WaitTimer.is_stopped():
 			$Transition.black_go_in()
 			yield($Transition/AnimationPlayer, "animation_finished")
-			get_tree().change_scene("res://Menu/Intro.tscn")
+			get_tree().change_scene("res://World/World.tscn")
 
 func blink_any_key():
 	if $BlinkTimer.is_stopped():

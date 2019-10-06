@@ -44,7 +44,7 @@ func _physics_process(delta):
 
 
 func fire_bullet():
-	$CanFireTimer.wait_time = bullet_wait_time
+	$CanFireTimer.wait_time = global.fire_rate
 	$CanFireTimer.start()
 	var myBullet = bullet.instance()
 	myBullet.moveDir = get_global_mouse_position()

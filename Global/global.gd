@@ -10,6 +10,8 @@ var playerSprite = null
 var currWeapon = null
 var enemiesAlive = 0
 var money = 0
+var player_damage = 1
+var fire_rate = .5
 
 func _ready():
 	randomize()

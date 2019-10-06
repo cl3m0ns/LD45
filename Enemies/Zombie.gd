@@ -118,7 +118,7 @@ func do_knockback():
 func take_damage():
 	if iframes == 0:
 		iframes = 15
-		hp -= 1
+		hp -= global.player_damage
 		if hp <= 0:
 			do_death()
 		else:

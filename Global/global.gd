@@ -19,7 +19,7 @@ var rounds_survived = 0
 var SFX = true
 var level = 1
 var MUSIC = true
-
+var pickupSound = null
 
 func _ready():
 	randomize()
@@ -32,7 +32,12 @@ func check_money():
 
 func spend_money():
 	money -= 10 * (level-1)
-	
+
+func play_pickup():
+	if SFX && pickupSound != null:
+		pass
+		#pickupSound.play()
+
 func more_damage():
 	global.player_damage += 1
 

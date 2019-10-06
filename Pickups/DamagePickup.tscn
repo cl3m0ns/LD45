@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Pickups/DamagePickup.gd" type="Script" id=1]
 [ext_resource path="res://Misc/ArrowAnim.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Font/LemonMilk.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://Misc/PickupSound.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.3759, 11.4068 )
@@ -32,5 +33,7 @@ margin_right = 43.0
 margin_bottom = 8.0
 custom_fonts/font = SubResource( 2 )
 text = "Damage Up"
+
+[node name="Pickup" parent="." instance=ExtResource( 4 )]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
 [connection signal="area_exited" from="Hitbox" to="." method="_on_Hitbox_area_exited"]

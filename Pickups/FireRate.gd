@@ -9,6 +9,7 @@ func _physics_process(delta):
 		#DO fire rate up here
 		global.more_fire_rate()
 		global.spend_money()
+		global.play_pickup()
 		queue_free()
 
 func _on_Hitbox_area_entered(area):

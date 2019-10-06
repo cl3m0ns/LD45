@@ -11,6 +11,7 @@ func _physics_process(delta):
 		global.max_hp += 2
 		global.hasShirt = true
 		global.spend_money()
+		global.play_pickup()
 		queue_free()
 
 func _on_Hitbox_area_entered(area):

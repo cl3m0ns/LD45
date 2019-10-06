@@ -13,7 +13,7 @@ enum {
 	CHASE,
 	KNOCKBACK
 }
-var hp = 1
+var hp = 3
 
 var dirChoose = [Vector2.RIGHT, Vector2.DOWN, Vector2.UP, Vector2.LEFT, Vector2(1,1), Vector2(-1,-1), Vector2(-1,1), Vector2(1,-1)]
 var state = NEW_DIR
@@ -118,6 +118,8 @@ func do_knockback():
 func take_damage():
 	if iframes == 0:
 		iframes = 15
+		if global.SFX:
+			$Hurt.play()
 		hp -= global.player_damage
 		var boom = bloodImpact.instance()
 		var myPos = self.global_position
@@ -132,6 +134,8 @@ func do_death():
 	get_node("Sprite").modulate = Color(10,10,10,10)
 	global.enemiesAlive -= 1
 	global.money += 5
+	if global.SFX:
+		$Hurt.play()
 	#var boom = bloodSplatter.instance()
 	#boom.set_position(position)
 	#get_parent().add_child(boom)

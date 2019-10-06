@@ -7,7 +7,7 @@ func _ready():
 func _physics_process(delta):
 	if canPickup && Input.is_action_pressed("pickup_item") && global.check_money():
 		#DO fire rate up here
-		global.fire_rate -= .025
+		global.more_fire_rate()
 		global.spend_money()
 		queue_free()
 

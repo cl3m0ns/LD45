@@ -7,7 +7,8 @@ func _ready():
 func _physics_process(delta):
 	if canPickup && Input.is_action_pressed("pickup_item") && global.check_money():
 		#DO DAMAGE UP HERE
-		global.player_damage += 1
+		
+		global.more_damage()
 		global.spend_money()
 		queue_free()
 

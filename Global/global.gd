@@ -33,6 +33,12 @@ func check_money():
 func spend_money():
 	money -= 10 * (level-1)
 	
+func more_damage():
+	global.player_damage += 1
+
+func more_fire_rate():
+	global.fire_rate -= .025
+
 func update_player_sprite(isShirt):
 	if playerSprite == null:
 		return

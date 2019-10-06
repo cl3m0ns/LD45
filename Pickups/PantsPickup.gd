@@ -9,6 +9,8 @@ func _physics_process(delta):
 		global.update_player_sprite(false)
 		global.hp += 3
 		global.max_hp += 3
+		global.hasPants = true
+		global.itemPicked = true
 		queue_free()
 
 func _on_Hitbox_area_entered(area):

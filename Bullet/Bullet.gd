@@ -6,6 +6,7 @@ var moveDir = Vector2.ZERO
 var start_pos = Vector2.ZERO
 var canHurt = true
 var damage = 0
+var bulletHit = preload("res://Misc/BulletImpact.tscn")
 
 func ready():
 	$LifeTimer.start()
@@ -26,4 +27,8 @@ func _on_Hitbox_area_entered(area):
 		explode_and_die()
 
 func explode_and_die():
+	var boom = bulletHit.instance()
+	var myPos = self.global_position
+	boom.set_global_position(myPos)
+	get_parent().add_child(boom)
 	queue_free()

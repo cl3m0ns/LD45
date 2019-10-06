@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Bullet/Bullet.gd" type="Script" id=1]
 [ext_resource path="res://Bullet/bullet.png" type="Texture" id=2]
+[ext_resource path="res://Misc/BulletImpact.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 2.19912
@@ -28,6 +29,9 @@ shape = SubResource( 2 )
 
 [node name="LifeTimer" type="Timer" parent="."]
 process_mode = 0
+wait_time = 0.7
 one_shot = true
 autostart = true
+
+[node name="BulletHit" parent="." instance=ExtResource( 3 )]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]

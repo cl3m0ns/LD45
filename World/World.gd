@@ -1,11 +1,14 @@
 extends Node2D
 var arrow = load("res://Misc/1crosshair.png")
 var zombie = preload("res://Enemies/Zombie.tscn")
+var shop = preload("res://Misc/Shop.tscn")
+var currShop = null
 var level = 1
 var levelStarted = false
 var enemiesToSpawn = 0
 var currMoney = 0
 var spawners = []
+export var round_timer = 15
 
 func _ready():
 	spawners = [$Spawners/Spawner, $Spawners/Spawner2, $Spawners/Spawner3, $Spawners/Spawner4]
@@ -36,18 +39,23 @@ func _physics_process(delta):
 	currMoney = global.money
 
 func start_round():
-	$Shop.visible = false
+	if currShop != null:
+		currShop = null
 	levelStarted = true
 	enemiesToSpawn = 5 * level
 	global.enemiesAlive = enemiesToSpawn
 	$UI_Bar/Labels/RoundLabel.text = "ROUND " + String(level)
 	
 
+func spawn_shop():
+	currShop = shop.instance()
+	add_child(currShop)
+
 func end_round():
-	$Shop.visible = true
+	spawn_shop()
 	levelStarted = false
 	level += 1
-	$BreakTimer.wait_time = 15
+	$BreakTimer.wait_time = round_timer
 	
 	$BreakTimer.start()
 

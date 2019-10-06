@@ -8,6 +8,7 @@ func _physics_process(delta):
 	if canPickup && Input.is_action_pressed("pickup_item"):
 		#DO fire rate up here
 		global.fire_rate -= .025
+		global.itemPicked = true
 		queue_free()
 
 func _on_Hitbox_area_entered(area):

@@ -12,6 +12,10 @@ var enemiesAlive = 0
 var money = 0
 var player_damage = 1
 var fire_rate = .5
+var hasPants = false
+var hasShirt = false
+var itemPicked = false
+
 
 func _ready():
 	randomize()
@@ -35,3 +39,5 @@ func reset_stats():
 	hp = max_hp
 	enemiesAlive = 0
 	money = 0
+	hasPants = false
+	hasShirt = false

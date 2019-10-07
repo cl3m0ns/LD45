@@ -126,6 +126,7 @@ func take_damage():
 		boom.set_global_position(myPos)
 		get_parent().add_child(boom)
 		if hp <= 0:
+			global.player.bad_guy_dead = true
 			do_death()
 		else:
 			state = KNOCKBACK

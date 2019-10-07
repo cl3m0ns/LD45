@@ -34,8 +34,7 @@ func spend_money():
 
 func play_pickup():
 	if MUSIC == true && pickupSound != null:
-		pass
-		#pickupSound.play()
+		player.shop_buy = true
 
 func more_damage():
 	global.player_damage += 1
@@ -60,4 +59,8 @@ func reset_stats():
 	money = 0
 	hasPants = false
 	hasShirt = false
+	level = 1
 	rounds_survived = 0
+	money = 0
+	player_damage = 1
+	fire_rate = .5

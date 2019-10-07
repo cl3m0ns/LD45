@@ -9,12 +9,24 @@ var hasWeapon = false
 var bullet = preload("res://Bullet/Bullet.tscn")
 export var bullet_wait_time = 0.5
 var iframes = 0
-
+var bad_guy_dead = false
+var shop_buy = false
 func _ready():
 	global.player = self
 	global.playerSprite = $Sprite
 
 func _physics_process(delta):
+	
+	if bad_guy_dead:
+		bad_guy_dead = false
+		if global.MUSIC:
+			$BadGuyDead.play()
+	
+	if shop_buy:
+		shop_buy = false
+		if global.MUSIC:
+			$Shop.play()
+	
 	get_inputs()
 	if moveDir != Vector2.ZERO:
 		state = states.MOVE
@@ -78,7 +90,7 @@ func _on_Hitbox_area_entered(area):
 		if iframes == 0:
 			iframes = 15
 			global.hp -= 1
-			if global.SFX != false:
+			if global.MUSIC != false:
 				$Hurt.play()
 		if global.hp <= 0:
 			do_death()

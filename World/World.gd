@@ -27,14 +27,11 @@ func _physics_process(delta):
 		$UI_Bar/Labels/Money.text = "$" + String(global.money)
 	
 	if levelStarted == false && $BreakTimer.is_stopped():
-		print('start')
 		start_round()
 		spawnEnemies()
 	elif levelStarted && enemiesToSpawn > 0 && $SpawnTimer.is_stopped():
-		print('during')
 		spawnEnemies()
 	elif levelStarted && enemiesToSpawn == 0 && global.enemiesAlive == 0:
-		print('end')
 		end_round()
 	elif $BreakTimer.time_left > 0:
 		var timeLeft = String(round($BreakTimer.time_left))
@@ -73,8 +70,31 @@ func spawnEnemies():
 	var z = zombie.instance()
 	z.set_global_position(pos)
 	$Enemies.add_child(z)
+	print(global.level <= 2)
+	print(global.level)
+	if global.level <= 2:
+		z.hp = 3
+	elif global.level > 2 && global.level < 4:
+		z.hp = 4
+	elif global.level >= 4 && global.level < 6:
+		z.hp = 8
+	elif global.level >= 6 && global.level < 8:
+		z.hp = 10
+	else:
+		z.hp = 12
 	enemiesToSpawn -= 1
-	$SpawnTimer.wait_time = choose([1.5, 2, 2.5, 1.25, 2.25])
+	var chooser = choose([1.5, 2, 2.5, 1.25, 2.25])
+	if global.level <= 2:
+		chooser = choose([1.5, 2, 2.5, 1.25])
+	elif global.level > 2 && global.level < 4:
+		chooser = choose([1.5, 2, 1.25])
+	elif global.level >= 4 && global.level < 6:
+		chooser = choose([1.5, 1.75, 1.25])
+	elif global.level >= 6 && global.level < 8:
+		chooser = choose([1, 1.25, 0.75])
+	else:
+		chooser = choose([0.75, 0.5, 0.25])
+	$SpawnTimer.wait_time = chooser
 	$SpawnTimer.start()
 
 func choose(array):

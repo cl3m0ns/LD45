@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Misc/shadow.png" type="Texture" id=2]
 [ext_resource path="res://Player/player_naked.png" type="Texture" id=3]
 [ext_resource path="res://Sounds/Shoot.wav" type="AudioStream" id=4]
 [ext_resource path="res://Sounds/PlayerHurt.wav" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/ZombieHurt.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/ShopBuy.wav" type="AudioStream" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.26689, 4.05223 )
@@ -80,9 +82,17 @@ shape = SubResource( 4 )
 
 [node name="Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-volume_db = -10.0
+volume_db = -35.0
 
 [node name="Hurt" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-volume_db = -5.0
+volume_db = -25.0
+
+[node name="BadGuyDead" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -25.0
+
+[node name="Shop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -25.0
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]

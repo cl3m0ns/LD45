@@ -56,6 +56,7 @@ func _physics_process(delta):
 
 
 func fire_bullet():
+	print(global.fire_rate)
 	$CanFireTimer.wait_time = global.fire_rate
 	$CanFireTimer.start()
 	var myBullet = bullet.instance()

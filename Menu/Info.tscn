@@ -121,7 +121,9 @@ margin_top = 9.61677
 margin_right = 355.304
 margin_bottom = 49.6168
 rect_scale = Vector2( 0.4, 0.4 )
+focus_mode = 0
 pressed = true
+enabled_focus_mode = 0
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )

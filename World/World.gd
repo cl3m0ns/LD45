@@ -10,7 +10,6 @@ var spawners = []
 export var round_timer = 15
 
 func _ready():
-	print(global.MUSIC)
 	if global.MUSIC:
 		$Music.play()
 	else:
@@ -70,18 +69,22 @@ func spawnEnemies():
 	var z = zombie.instance()
 	z.set_global_position(pos)
 	$Enemies.add_child(z)
-	print(global.level <= 2)
-	print(global.level)
 	if global.level <= 2:
 		z.hp = 3
 	elif global.level > 2 && global.level < 4:
 		z.hp = 4
 	elif global.level >= 4 && global.level < 6:
-		z.hp = 8
+		z.hp = 6
 	elif global.level >= 6 && global.level < 8:
-		z.hp = 10
+		z.hp = 8
+	elif global.level >= 8 && global.level < 10:
+		z.hp = 11
+	elif global.level >= 10 && global.level < 12:
+		z.hp = 15
+	elif global.level >= 12 && global.level < 14:
+		z.hp = 18
 	else:
-		z.hp = 12
+		z.hp = 20
 	enemiesToSpawn -= 1
 	var chooser = choose([1.5, 2, 2.5, 1.25, 2.25])
 	if global.level <= 2:

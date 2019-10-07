@@ -39,4 +39,3 @@ func _on_MusicButton_toggled(button_pressed):
 		global.MUSIC = true
 	else:
 		global.MUSIC = false
-	print(global.MUSIC)

@@ -11,7 +11,7 @@ var currWeapon = null
 var enemiesAlive = 0
 var money = 0
 var player_damage = 1
-var fire_rate = .5
+var fire_rate = .6
 var hasPants = false
 var hasShirt = false
 var itemPicked = false
@@ -40,7 +40,9 @@ func more_damage():
 	global.player_damage += 1
 
 func more_fire_rate():
-	global.fire_rate -= .025
+	global.fire_rate -= .075
+	if global.fire_rate < 0:
+		global.fire_rate = .001
 
 func update_player_sprite(isShirt):
 	if playerSprite == null:

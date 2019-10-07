@@ -34,7 +34,7 @@ position = Vector2( 18.4257, 110.27 )
 position = Vector2( 292.233, 155.827 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 19.1716, 16.336 )
+position = Vector2( 143.455, 73.6142 )
 z_index = 2
 z_as_relative = false
 
@@ -48,7 +48,7 @@ one_shot = true
 
 [node name="BreakTimer" type="Timer" parent="."]
 process_mode = 0
-wait_time = 8.0
+wait_time = 15.0
 one_shot = true
 
 [node name="Transition" parent="." instance=ExtResource( 6 )]

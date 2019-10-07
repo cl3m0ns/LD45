@@ -118,7 +118,7 @@ func do_knockback():
 func take_damage():
 	if iframes == 0:
 		iframes = 15
-		if global.SFX:
+		if global.MUSIC:
 			$Hurt.play()
 		hp -= global.player_damage
 		var boom = bloodImpact.instance()
@@ -134,7 +134,7 @@ func do_death():
 	get_node("Sprite").modulate = Color(10,10,10,10)
 	global.enemiesAlive -= 1
 	global.money += 5
-	if global.SFX:
+	if global.MUSIC:
 		$Hurt.play()
 	#var boom = bloodSplatter.instance()
 	#boom.set_position(position)

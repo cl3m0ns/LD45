@@ -9,6 +9,8 @@ func _ready():
 func _physics_process(delta):
 	if global.MUSIC == false:
 		$Music.stop()
+	elif global.MUSIC && !$Music.playing:
+		$Music.play()
 	blink_any_key()
 
 func _input(event):
@@ -37,11 +39,4 @@ func _on_MusicButton_toggled(button_pressed):
 		global.MUSIC = true
 	else:
 		global.MUSIC = false
-	
-
-
-func _on_SoundButton_toggled(button_pressed):
-	if button_pressed:
-		global.SFX = true
-	else:
-		global.SFX = false
+	print(global.MUSIC)

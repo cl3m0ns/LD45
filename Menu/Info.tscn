@@ -12,7 +12,7 @@ outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_char = 1
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 10
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -52,19 +52,6 @@ custom_fonts/font = SubResource( 1 )
 text = "music"
 align = 2
 
-[node name="Label6" type="Label" parent="."]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 201.092
-margin_top = 32.26
-margin_right = 278.092
-margin_bottom = 43.26
-custom_fonts/font = SubResource( 1 )
-text = "sound effects"
-align = 2
-
 [node name="Label4" type="Label" parent="."]
 anchor_left = 1.0
 anchor_top = 1.0
@@ -101,7 +88,7 @@ margin_left = 3.45368
 margin_top = 157.803
 margin_right = 319.454
 margin_bottom = 173.803
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.956863, 0.956863, 0.6, 1 )
 text = "- press any key -"
 align = 1
@@ -112,7 +99,7 @@ margin_left = 2.51581
 margin_top = 157.78
 margin_right = 318.516
 margin_bottom = 173.78
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "- press any key -"
 align = 1
@@ -126,6 +113,7 @@ one_shot = true
 autostart = true
 
 [node name="Transition" parent="." instance=ExtResource( 3 )]
+visible = false
 
 [node name="MusicButton" type="CheckButton" parent="."]
 margin_left = 279.304
@@ -135,17 +123,8 @@ margin_bottom = 49.6168
 rect_scale = Vector2( 0.4, 0.4 )
 pressed = true
 
-[node name="SoundButton" type="CheckButton" parent="."]
-margin_left = 279.304
-margin_top = 28.8503
-margin_right = 355.304
-margin_bottom = 68.8503
-rect_scale = Vector2( 0.4, 0.4 )
-pressed = true
-
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -25.0
 autoplay = true
 [connection signal="toggled" from="MusicButton" to="." method="_on_MusicButton_toggled"]
-[connection signal="toggled" from="SoundButton" to="." method="_on_SoundButton_toggled"]

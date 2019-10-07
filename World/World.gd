@@ -10,7 +10,10 @@ var spawners = []
 export var round_timer = 15
 
 func _ready():
-	if global.MUSIC == false:
+	print(global.MUSIC)
+	if global.MUSIC:
+		$Music.play()
+	else:
 		$Music.stop()
 	spawners = [$Spawners/Spawner, $Spawners/Spawner2, $Spawners/Spawner3, $Spawners/Spawner4]
 	$BreakTimer.start()

@@ -16,7 +16,6 @@ var hasPants = false
 var hasShirt = false
 var itemPicked = false
 var rounds_survived = 0
-var SFX = true
 var level = 1
 var MUSIC = true
 var pickupSound = null
@@ -34,7 +33,7 @@ func spend_money():
 	money -= 10 * (level-1)
 
 func play_pickup():
-	if SFX && pickupSound != null:
+	if MUSIC == true && pickupSound != null:
 		pass
 		#pickupSound.play()
 

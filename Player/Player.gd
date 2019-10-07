@@ -1,5 +1,5 @@
 extends KinematicBody2D
-export (int) var SPEED = 75
+export (int) var SPEED = 80
 var TYPE = "PLAYER"
 var moveDir = Vector2.ZERO
 enum states { IDLE, MOVE }
@@ -52,7 +52,7 @@ func fire_bullet():
 	myBullet.set_global_position(Vector2(currPos.x, currPos.y-5))
 	myBullet.start_pos = get_position()
 	get_parent().add_child(myBullet)
-	if global.SFX:
+	if global.MUSIC != false:
 		$Shoot.play()
 	
 func get_inputs():
@@ -78,7 +78,7 @@ func _on_Hitbox_area_entered(area):
 		if iframes == 0:
 			iframes = 15
 			global.hp -= 1
-			if global.SFX:
+			if global.SFX != false:
 				$Hurt.play()
 		if global.hp <= 0:
 			do_death()
